@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Booking — Arkadia Travel</title>
+    <meta name="description" content="Reserve your curated Arkadia Travel journey with instant confirmation, live price calculator, and flexible protection.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%230b1f2a'/%3E%3Cpath d='M20 8l9 22-9-5-9 5 9-22z' fill='%23c89b54'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 19 21 12 17 5 21 12 2"/></svg>
+                </span>
+                <span>Arkadia Travel</span>
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="booking.html" class="active">Book Trip</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button type="button" class="trips-btn" data-open-trips aria-label="Open My Trips and Saved">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span class="trips-label">My Trips</span>
+                    <span class="trips-badge is-zero">0</span>
+                </button>
+                <a href="destinations.html" class="btn btn--outline btn--sm header-cta-desktop">Browse All</a>
+                <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="nav-backdrop" id="navBackdrop"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile menu">
+        <div class="mobile-drawer-head">
+            <span class="brand" style="font-size:20px;">Arkadia Travel</span>
+            <button type="button" class="icon-close-btn" id="closeMobileDrawer" aria-label="Close menu">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <nav class="mobile-drawer-links">
+            <a href="index.html">Home</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="packages.html">Packages</a>
+            <a href="booking.html" class="active">Book a Trip</a>
+            <a href="contact.html">Contact & Concierge</a>
+        </nav>
+        <div class="mobile-drawer-footer">
+            <button type="button" class="btn btn--outline btn--block" data-open-trips>My Trips & Saved</button>
+        </div>
+    </aside>
+
+    <main>
+        <section class="page-hero page-hero--booking">
+            <div class="container">
+                <span class="eyebrow eyebrow--gold">Instant Reservation</span>
+                <h1>Complete Your Booking</h1>
+                <p>Customize your dates, package tier, and travelers below. Your live summary updates instantaneously with instant confirmation.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <form id="bookingForm" class="booking-layout" novalidate>
+                    <!-- Left Column: Multi-Section Form -->
+                    <div class="booking-card">
+                        <h2 class="form-section-title"><span class="step-badge">1</span> Trip Configuration</h2>
+
+                        <div class="form-grid">
+                            <div class="form-group full">
+                                <label for="destinationSelect">Destination</label>
+                                <select id="destinationSelect" class="form-control"></select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="durationSelect">Trip Duration</label>
+                                <select id="durationSelect" class="form-control"></select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="packageSelect">Hospitality Tier</label>
+                                <select id="packageSelect" class="form-control"></select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="startDateInput">Preferred Departure Date</label>
+                                <input type="date" id="startDateInput" class="form-control" required>
+                                <span class="field-error" id="startDateInputError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-grid" style="gap:10px;">
+                                    <div>
+                                        <label for="adultsInput">Adults (12+)</label>
+                                        <input type="number" id="adultsInput" class="form-control" min="1" max="12" value="2">
+                                    </div>
+                                    <div>
+                                        <label for="childrenInput">Children (-30%)</label>
+                                        <input type="number" id="childrenInput" class="form-control" min="0" max="8" value="0">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="form-section-title"><span class="step-badge">2</span> Optional Add-Ons</h2>
+                        <div class="addons-grid" id="bookingAddonsGrid"></div>
+
+                        <h2 class="form-section-title"><span class="step-badge">3</span> Lead Traveler Details</h2>
+                        <div class="form-grid">
+                            <div class="form-group full">
+                                <label for="travelerName">Full Legal Name</label>
+                                <input type="text" id="travelerName" class="form-control" placeholder="e.g., Alex Morgan" required>
+                                <span class="field-error" id="travelerNameError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="travelerEmail">Email Address</label>
+                                <input type="email" id="travelerEmail" class="form-control" placeholder="alex@example.com" required>
+                                <span class="field-error" id="travelerEmailError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="travelerPhone">Mobile / WhatsApp Number</label>
+                                <input type="tel" id="travelerPhone" class="form-control" placeholder="+44 7700 900123" required>
+                                <span class="field-error" id="travelerPhoneError"></span>
+                            </div>
+
+                            <div class="form-group full">
+                                <label for="specialRequests">Special Requests (Optional)</label>
+                                <textarea id="specialRequests" class="form-control" rows="3" placeholder="Dietary preferences, honeymoon setup, room floor preference, flight arrival time..."></textarea>
+                            </div>
+                        </div>
+
+                        <h2 class="form-section-title"><span class="step-badge">4</span> Secure Payment</h2>
+
+                        <div class="payment-methods">
+                            <div class="payment-choice">
+                                <input type="radio" id="payCard" name="payment_method" value="card" checked>
+                                <label for="payCard">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                                    Visa / MasterCard
+                                </label>
+                            </div>
+                            <div class="payment-choice">
+                                <input type="radio" id="payPaypal" name="payment_method" value="paypal">
+                                <label for="payPaypal">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.5 16l1.5-8h3.5a2.5 2.5 0 0 1 0 5H10"/></svg>
+                                    PayPal Express
+                                </label>
+                            </div>
+                            <div class="payment-choice">
+                                <input type="radio" id="payBank" name="payment_method" value="bank_transfer">
+                                <label for="payBank">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 22 7 12 2"/><line x1="4" y1="10" x2="4" y2="18"/><line x1="10" y1="10" x2="10" y2="18"/><line x1="14" y1="10" x2="14" y2="18"/><line x1="20" y1="10" x2="20" y2="18"/><line x1="2" y1="21" x2="22" y2="21"/></svg>
+                                    Bank Wire
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="payment-panel" id="cardPaymentPanel">
+                            <div class="form-grid">
+                                <div class="form-group full">
+                                    <label for="cardNumber">Card Number (Demo Simulation)</label>
+                                    <input type="text" id="cardNumber" class="form-control" inputmode="numeric" placeholder="4532 1094 8821 4410" maxlength="19">
+                                    <span class="field-error" id="cardNumberError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardExpiry">Expiry Date</label>
+                                    <input type="text" id="cardExpiry" class="form-control" inputmode="numeric" placeholder="MM/YY" maxlength="5">
+                                    <span class="field-error" id="cardExpiryError"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardCvv">Security Code (CVV)</label>
+                                    <input type="text" id="cardCvv" class="form-control" inputmode="numeric" placeholder="123" maxlength="4">
+                                    <span class="field-error" id="cardCvvError"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="payment-panel" id="paypalPaymentPanel" style="display:none;">
+                            <p class="payment-note"><strong>PayPal Buyer Protection Included:</strong> Click "Confirm & Pay" to complete instant demo authorization via PayPal Express with zero transaction surcharge.</p>
+                        </div>
+
+                        <div class="payment-panel" id="bankPaymentPanel" style="display:none;">
+                            <p class="payment-note"><strong>Zero-Fee Bank Wire:</strong> Your sanctuary will be reserved immediately for 48 hours while wire instructions (IBAN: GB29 ARKA 6016 1331 9268 19) are included on your confirmation receipt.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-row">
+                                <input type="checkbox" id="termsCheck" checked>
+                                <span>I agree to the <a href="#" data-legal="terms">Terms & Conditions</a> and <a href="#" data-legal="privacy">Privacy Policy</a>, including free rescheduling up to 14 days before departure.</span>
+                            </label>
+                            <span class="field-error" id="termsCheckError"></span>
+                        </div>
+
+                        <button type="submit" id="confirmBookingBtn" class="btn btn--primary btn--lg btn--block">
+                            Confirm & Pay <span id="payBtnAmount">$0</span>
+                        </button>
+                    </div>
+
+                    <!-- Right Column: Sticky Live Summary -->
+                    <aside class="summary-card" aria-label="Booking Price Summary">
+                        <h3 style="font-size:21px;margin-bottom:16px;">Booking Summary</h3>
+
+                        <div class="summary-dest-preview">
+                            <img id="summaryDestImg" src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=900&q=80" alt="Selected destination">
+                            <div>
+                                <h4 id="summaryDestTitle">Albania — Ionian Riviera</h4>
+                                <p id="summaryDestSub">The Tranquility Pack · 3 Days / 2 Nights</p>
+                            </div>
+                        </div>
+
+                        <div class="promo-row">
+                            <input type="text" id="promoCodeInput" placeholder="Promo code (e.g. ARKADIA10)">
+                            <button type="button" id="applyPromoBtn" class="btn btn--outline btn--sm" style="border-radius:8px;">Apply</button>
+                        </div>
+                        <div class="promo-hint">
+                            Try code: <button type="button" id="quickPromoChip">ARKADIA10</button> for 10% off
+                            <div id="promoFeedback" style="margin-top:4px;font-weight:600;"></div>
+                        </div>
+
+                        <div class="summary-lines" id="summaryLines"></div>
+
+                        <div class="summary-total">
+                            <span>Total (USD)</span>
+                            <strong id="summaryGrandTotal">$0</strong>
+                        </div>
+
+                        <div class="trust-badges">
+                            <div>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Instant booking reference & printable PDF</span>
+                            </div>
+                            <div>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>100% refund up to 21 days before travel</span>
+                            </div>
+                            <div>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Saved automatically in your "My Trips" drawer</span>
+                            </div>
+                        </div>
+                    </aside>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="brand footer-brand">
+                        <span class="brand-mark" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 19 21 12 17 5 21 12 2"/></svg>
+                        </span>
+                        <span>Arkadia Travel</span>
+                    </a>
+                    <p class="footer-desc">Crafting authentic serenity and boutique luxury journeys across Europe, Asia, North Africa, and the Indian Ocean since 2019.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="packages.html">Travel Packages</a></li>
+                        <li><a href="booking.html">Book Online</a></li>
+                        <li><a href="contact.html">Concierge & Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Popular Escapes</h4>
+                    <ul>
+                        <li><a href="booking.html?destination=albania">Albania — Ionian Riviera</a></li>
+                        <li><a href="booking.html?destination=greece">Greece — Santorini & Milos</a></li>
+                        <li><a href="booking.html?destination=japan">Japan — Kyoto & Hakone</a></li>
+                        <li><a href="booking.html?destination=switzerland">Switzerland — Alps</a></li>
+                        <li><a href="booking.html?destination=maldives">Maldives — Baa Atoll</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company & Support</h4>
+                    <ul>
+                        <li><button type="button" data-legal="terms">Terms & Conditions</button></li>
+                        <li><button type="button" data-legal="privacy">Privacy Policy</button></li>
+                        <li><button type="button" data-legal="careers">Careers at Arkadia</button></li>
+                        <li><a href="mailto:concierge@arkadiatravel.com">concierge@arkadiatravel.com</a></li>
+                        <li><a href="tel:+442079460921">+44 20 7946 0921 (24/7)</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Arkadia Travel International. All rights reserved.</span>
+                <span>ATOL & IATA Protected · 100% Carbon-Balanced Transfers</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

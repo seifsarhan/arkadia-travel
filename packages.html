@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Packages — Arkadia Travel</title>
+    <meta name="description" content="Compare Tranquility, Explorer, and Bespoke Royal Suite travel packages with transparent pricing and customizable luxury add-ons.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%230b1f2a'/%3E%3Cpath d='M20 8l9 22-9-5-9 5 9-22z' fill='%23c89b54'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 19 21 12 17 5 21 12 2"/></svg>
+                </span>
+                <span>Arkadia Travel</span>
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="packages.html" class="active">Packages</a></li>
+                    <li><a href="booking.html">Book Trip</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button type="button" class="trips-btn" data-open-trips aria-label="Open My Trips and Saved">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span class="trips-label">My Trips</span>
+                    <span class="trips-badge is-zero">0</span>
+                </button>
+                <a href="booking.html" class="btn btn--primary btn--sm header-cta-desktop">Reserve Now</a>
+                <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="nav-backdrop" id="navBackdrop"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile menu">
+        <div class="mobile-drawer-head">
+            <span class="brand" style="font-size:20px;">Arkadia Travel</span>
+            <button type="button" class="icon-close-btn" id="closeMobileDrawer" aria-label="Close menu">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <nav class="mobile-drawer-links">
+            <a href="index.html">Home</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="packages.html" class="active">Packages</a>
+            <a href="booking.html">Book a Trip</a>
+            <a href="contact.html">Contact & Concierge</a>
+        </nav>
+        <div class="mobile-drawer-footer">
+            <button type="button" class="btn btn--outline btn--block" data-open-trips>My Trips & Saved</button>
+            <a href="booking.html" class="btn btn--primary btn--block">Reserve Your Escape</a>
+        </div>
+    </aside>
+
+    <main>
+        <section class="page-hero page-hero--packages">
+            <div class="container">
+                <span class="eyebrow eyebrow--gold">Tailored Experience Tiers</span>
+                <h1>Choose Your Perfect Journey</h1>
+                <p>Pair any destination with our signature hospitality tiers—flexible, all-transparent pricing with zero surprises.</p>
+            </div>
+        </section>
+
+        <!-- Packages Tier Grid -->
+        <section class="section">
+            <div class="container">
+                <div class="traveler-toggle-wrap">
+                    <span>Estimate pricing for:</span>
+                    <div class="segmented-control" role="group" aria-label="Select traveler count">
+                        <button type="button" class="segmented-btn active" data-guest-toggle="1">Solo (1)</button>
+                        <button type="button" class="segmented-btn" data-guest-toggle="2">Couple (2)</button>
+                        <button type="button" class="segmented-btn" data-guest-toggle="4">Family / Group (4)</button>
+                    </div>
+                </div>
+
+                <div class="packages-grid" id="packagesGrid"></div>
+            </div>
+        </section>
+
+        <!-- Optional Luxury Add-Ons -->
+        <section class="section section--white">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow">Elevate Your Stay</span>
+                    <h2 class="section-title">Optional Concierge Add-Ons</h2>
+                    <p class="section-subtitle">Pre-select any add-ons below—they will carry straight into your checkout summary automatically.</p>
+                </div>
+
+                <div class="addons-grid" id="packagesAddonsGrid"></div>
+            </div>
+        </section>
+
+        <!-- Feature Comparison Table -->
+        <section class="section section--sand">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow">Side-by-Side Breakdown</span>
+                    <h2 class="section-title">Compare Every Detail</h2>
+                    <p class="section-subtitle">See exactly what is included in each Arkadia tier before you reserve.</p>
+                </div>
+
+                <div class="table-scroll">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Included Benefit</th>
+                                <th>Tranquility Pack</th>
+                                <th>Explorer Pack</th>
+                                <th>Bespoke Royal Suite</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Accommodation Standard</td>
+                                <td>4★ Boutique Sanctuary</td>
+                                <td>5★ Luxury Suite</td>
+                                <td>Private Villa / Penthouse</td>
+                            </tr>
+                            <tr>
+                                <td>Private Airport Transfers</td>
+                                <td class="check-yes">✓ Included</td>
+                                <td class="check-yes">✓ Included + Local Rail/Ferry</td>
+                                <td class="check-yes">✓ Chauffeur + Fast-Track</td>
+                            </tr>
+                            <tr>
+                                <td>Dining Experience</td>
+                                <td>Daily Artisanal Breakfast</td>
+                                <td>Breakfast + 3 Fine Dinners</td>
+                                <td>All-Inclusive + Private Chef</td>
+                            </tr>
+                            <tr>
+                                <td>Curated Excursions</td>
+                                <td>1 Signature Guided Tour</td>
+                                <td>Daily Guided Adventures</td>
+                                <td>Private Yacht / Helicopter</td>
+                            </tr>
+                            <tr>
+                                <td>Wellness & Spa Access</td>
+                                <td class="check-no">Optional Add-On</td>
+                                <td class="check-yes">✓ 1 Complimentary Ritual</td>
+                                <td class="check-yes">✓ Unlimited Thermal & Spa</td>
+                            </tr>
+                            <tr>
+                                <td>24/7 Concierge Support</td>
+                                <td class="check-yes">✓ WhatsApp & Phone</td>
+                                <td class="check-yes">✓ Dedicated Trip Host</td>
+                                <td class="check-yes">✓ Personal Travel Butler</td>
+                            </tr>
+                            <tr>
+                                <td>Free Date Rescheduling</td>
+                                <td class="check-yes">✓ Up to 14 Days Prior</td>
+                                <td class="check-yes">✓ Up to 14 Days Prior</td>
+                                <td class="check-yes">✓ Up to 72 Hours Prior</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Package FAQs -->
+        <section class="section section--white">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow">Good to Know</span>
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                </div>
+                <div class="faq-list" id="packagesFaqList"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="brand footer-brand">
+                        <span class="brand-mark" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 19 21 12 17 5 21 12 2"/></svg>
+                        </span>
+                        <span>Arkadia Travel</span>
+                    </a>
+                    <p class="footer-desc">Crafting authentic serenity and boutique luxury journeys across Europe, Asia, North Africa, and the Indian Ocean since 2019.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="packages.html">Travel Packages</a></li>
+                        <li><a href="booking.html">Book Online</a></li>
+                        <li><a href="contact.html">Concierge & Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Popular Escapes</h4>
+                    <ul>
+                        <li><a href="booking.html?destination=albania">Albania — Ionian Riviera</a></li>
+                        <li><a href="booking.html?destination=greece">Greece — Santorini & Milos</a></li>
+                        <li><a href="booking.html?destination=japan">Japan — Kyoto & Hakone</a></li>
+                        <li><a href="booking.html?destination=switzerland">Switzerland — Alps</a></li>
+                        <li><a href="booking.html?destination=maldives">Maldives — Baa Atoll</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company & Support</h4>
+                    <ul>
+                        <li><button type="button" data-legal="terms">Terms & Conditions</button></li>
+                        <li><button type="button" data-legal="privacy">Privacy Policy</button></li>
+                        <li><button type="button" data-legal="careers">Careers at Arkadia</button></li>
+                        <li><a href="mailto:concierge@arkadiatravel.com">concierge@arkadiatravel.com</a></li>
+                        <li><a href="tel:+442079460921">+44 20 7946 0921 (24/7)</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Arkadia Travel International. All rights reserved.</span>
+                <span>ATOL & IATA Protected · 100% Carbon-Balanced Transfers</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

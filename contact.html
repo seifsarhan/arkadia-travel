@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Concierge — Arkadia Travel</title>
+    <meta name="description" content="Connect with Arkadia Travel's 24/7 private concierge for custom itineraries, group retreats, and travel assistance.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%230b1f2a'/%3E%3Cpath d='M20 8l9 22-9-5-9 5 9-22z' fill='%23c89b54'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 19 21 12 17 5 21 12 2"/></svg>
+                </span>
+                <span>Arkadia Travel</span>
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="booking.html">Book Trip</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button type="button" class="trips-btn" data-open-trips aria-label="Open My Trips and Saved">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    <span class="trips-label">My Trips</span>
+                    <span class="trips-badge is-zero">0</span>
+                </button>
+                <a href="booking.html" class="btn btn--primary btn--sm header-cta-desktop">Reserve Now</a>
+                <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="nav-backdrop" id="navBackdrop"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile menu">
+        <div class="mobile-drawer-head">
+            <span class="brand" style="font-size:20px;">Arkadia Travel</span>
+            <button type="button" class="icon-close-btn" id="closeMobileDrawer" aria-label="Close menu">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <nav class="mobile-drawer-links">
+            <a href="index.html">Home</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="packages.html">Packages</a>
+            <a href="booking.html">Book a Trip</a>
+            <a href="contact.html" class="active">Contact & Concierge</a>
+        </nav>
+        <div class="mobile-drawer-footer">
+            <button type="button" class="btn btn--outline btn--block" data-open-trips>My Trips & Saved</button>
+            <a href="booking.html" class="btn btn--primary btn--block">Reserve Your Escape</a>
+        </div>
+    </aside>
+
+    <main>
+        <section class="page-hero page-hero--contact">
+            <div class="container">
+                <span class="eyebrow eyebrow--gold">24/7 Global Concierge</span>
+                <h1>Let's Design Your Next Journey</h1>
+                <p>Have a bespoke itinerary in mind, planning a honeymoon, or need quick booking guidance? A real travel curator replies within 2 hours.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="contact-layout">
+                    <!-- Left: Contact Form -->
+                    <div class="contact-card">
+                        <div id="contactFormWrap">
+                            <h2 style="font-size:28px;margin-bottom:6px;">Send Us a Message</h2>
+                            <p style="font-size:14.5px;color:var(--ink-500);margin-bottom:24px;">Tell us about your ideal dates, destination, or any questions you have.</p>
+
+                            <form id="contactForm" novalidate>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="contactName">Your Name</label>
+                                        <input type="text" id="contactName" class="form-control" placeholder="Full name" required>
+                                        <span class="field-error" id="contactNameError"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contactEmail">Email Address</label>
+                                        <input type="email" id="contactEmail" class="form-control" placeholder="you@example.com" required>
+                                        <span class="field-error" id="contactEmailError"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contactPhone">Phone / WhatsApp (Optional)</label>
+                                        <input type="tel" id="contactPhone" class="form-control" placeholder="+44 7700 900000">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contactTopic">Inquiry Topic</label>
+                                        <select id="contactTopic" class="form-control">
+                                            <option value="custom">Custom / Bespoke Itinerary</option>
+                                            <option value="booking">Existing Booking Assistance</option>
+                                            <option value="honeymoon">Honeymoon & Anniversary</option>
+                                            <option value="corporate">Executive / Group Retreat</option>
+                                            <option value="partnership">Hotel & Brand Partnerships</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group full">
+                                        <label for="contactMessage">How Can We Help?</label>
+                                        <textarea id="contactMessage" class="form-control" rows="5" placeholder="Share your preferred travel month, group size, destination ideas, or questions..." required></textarea>
+                                        <span class="field-error" id="contactMessageError"></span>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn--primary btn--lg btn--block">Send Inquiry to Concierge</button>
+                            </form>
+                        </div>
+
+                        <!-- Animated Success State -->
+                        <div id="contactSuccessCard" class="form-success-card" style="display:none;">
+                            <div class="success-icon-circle">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            <span class="eyebrow">Inquiry Received</span>
+                            <h2 style="font-size:28px;margin-bottom:10px;">Thank You, <span id="inquirySenderName">Traveler</span>!</h2>
+                            <p style="color:var(--ink-500);max-width:440px;margin:0 auto 18px;">Your request has been assigned reference <strong id="inquiryTicketId" style="color:var(--navy-900);">INQ-00000</strong>. A dedicated Arkadia travel curator will reply within 2 hours.</p>
+                            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                                <button type="button" id="sendAnotherBtn" class="btn btn--outline">Send Another Message</button>
+                                <a href="destinations.html" class="btn btn--primary">Explore Destinations</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Direct Channels & Offices -->
+                    <div class="contact-info-stack">
+                        <div class="sla-banner">
+                            <h4>● Concierge Desk Online Now</h4>
+                            <p>Average response time is <strong>under 45 minutes</strong>. For travelers currently on a trip, our emergency line responds in under 5 minutes.</p>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <div>
+                                <h4>Direct Concierge Phone</h4>
+                                <p><a href="tel:+442079460921" style="font-weight:600;color:var(--teal-700);">+44 20 7946 0921</a> (International 24/7)</p>
+                                <p>WhatsApp Concierge available anytime</p>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <div>
+                                <h4>Email Desks</h4>
+                                <p>Bookings: <strong>concierge@arkadiatravel.com</strong></p>
+                                <p>Partnerships: <strong>partners@arkadiatravel.com</strong></p>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <div>
+                                <h4>Boutique Lounges</h4>
+                                <p><strong>London:</strong> 42 Berkeley Square, Mayfair W1J</p>
+                                <p><strong>Zurich:</strong> Bahnhofstrasse 64, 8001 Zürich</p>
+                                <p><strong>Cairo:</strong> Nile City Towers, Zamalek Hub</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section section--white">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow">Quick Answers</span>
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Everything you need to know about reservations, payments, and flexible travel protection.</p>
+                </div>
+                <div class="faq-list" id="contactFaqList"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html" class="brand footer-brand">
+                        <span class="brand-mark" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 19 21 12 17 5 21 12 2"/></svg>
+                        </span>
+                        <span>Arkadia Travel</span>
+                    </a>
+                    <p class="footer-desc">Crafting authentic serenity and boutique luxury journeys across Europe, Asia, North Africa, and the Indian Ocean since 2019.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="destinations.html">Destinations</a></li>
+                        <li><a href="packages.html">Travel Packages</a></li>
+                        <li><a href="booking.html">Book Online</a></li>
+                        <li><a href="contact.html">Concierge & Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Popular Escapes</h4>
+                    <ul>
+                        <li><a href="booking.html?destination=albania">Albania — Ionian Riviera</a></li>
+                        <li><a href="booking.html?destination=greece">Greece — Santorini & Milos</a></li>
+                        <li><a href="booking.html?destination=japan">Japan — Kyoto & Hakone</a></li>
+                        <li><a href="booking.html?destination=switzerland">Switzerland — Alps</a></li>
+                        <li><a href="booking.html?destination=maldives">Maldives — Baa Atoll</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company & Support</h4>
+                    <ul>
+                        <li><button type="button" data-legal="terms">Terms & Conditions</button></li>
+                        <li><button type="button" data-legal="privacy">Privacy Policy</button></li>
+                        <li><button type="button" data-legal="careers">Careers at Arkadia</button></li>
+                        <li><a href="mailto:concierge@arkadiatravel.com">concierge@arkadiatravel.com</a></li>
+                        <li><a href="tel:+442079460921">+44 20 7946 0921 (24/7)</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Arkadia Travel International. All rights reserved.</span>
+                <span>ATOL & IATA Protected · 100% Carbon-Balanced Transfers</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
